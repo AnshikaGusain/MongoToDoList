@@ -2,14 +2,19 @@ const express = require("express");
 const date = require(__dirname + "/date.js");
 const mongoose=require("mongoose");
 const _=require("lodash");
+const dotenv=require("dotenv");
+
+
 const app = express();
+
+dotenv.config();
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 mongoose.set('strictQuery',false);
 
-mongoose.connect("mongodb+srv://admin-anshika:Anshika13@cluster0.wzrpvnt.mongodb.net/toDoListDB");
+mongoose.connect(`mongodb+srv://admin-anshika:${process.env.PASSWORD}@cluster0.wzrpvnt.mongodb.net/toDoListDB`);
 
 const itemsSchema={
     name:{
