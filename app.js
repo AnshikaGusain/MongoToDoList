@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 mongoose.set('strictQuery',false);
-console.log(process.env.PASSWORD);
+
 mongoose.connect(`mongodb+srv://admin-anshika:${process.env.PASSWORD}@cluster0.wzrpvnt.mongodb.net/toDoListDB`);
 
 const itemsSchema={
